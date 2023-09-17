@@ -6,9 +6,9 @@ export default defineComponent({
   props: {
     description: {
       type: String,
-      required: true,
+      default: '',
     },
   },
 
-  template: `<p class="meetup-description">{{description}}</p>`,
+  template: `<p v-if="description" class="meetup-description">{{ description }}</p>`,
 });
