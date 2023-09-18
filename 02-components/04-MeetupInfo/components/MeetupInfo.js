@@ -30,7 +30,7 @@ export default defineComponent({
       </li>
       <li>
         <img class="icon meetup-info__icon" alt="icon" src="/assets/icons/icon-cal-lg.svg" />
-        <time datetime="2020-01-01">{{ new Date(date).toLocaleDateString()}}</time>
+        <time :datetime="new Date(date).toISOString().substr(0, 10)">{{ new Date(date).toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}}</time>
       </li>
     </ul>`,
 });
