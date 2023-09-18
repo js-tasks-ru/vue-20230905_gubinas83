@@ -21,7 +21,7 @@ export default defineComponent({
   template: `
     <div class="agenda-item">
       <div class="agenda-item__col">
-        <img src="/assets/icons/${agendaItemIcons.break}.svg" class="icon" alt="key" />
+        <img :src="\`/assets/icons/\${agendaItemIcons[agendaItem.type]}.svg\`" class="icon" alt="key" />
       </div>
       <div class="agenda-item__col">{{ agendaItem.startsAt }} - {{ agendaItem.endsAt }}</div>
       <div class="agenda-item__col">
