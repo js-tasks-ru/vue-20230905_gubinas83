@@ -14,7 +14,7 @@ export async function fetchMeetupById(meetupId) {
         reject(new Error('Not found'));
       }
       resolve(meetup);
-    }, 500);
+    }, 1000);
   });
 }
 

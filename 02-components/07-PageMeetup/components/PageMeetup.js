@@ -38,9 +38,11 @@ export default defineComponent({
 
   methods: {
     getMeetup: async function () {
+      this.meetup = null;
       try {
         const data = await fetchMeetupById(this.meetupId);
         this.meetup = data;
+        this.error = false;
       } catch (err) {
         this.error = true;
       }
@@ -56,7 +58,7 @@ export default defineComponent({
       </UiContainer>
 
       <UiContainer v-else>
-        <UiAlert>error</UiAlert>
+        <UiAlert>Test Error</UiAlert>
       </UiContainer>
     </div>`,
 });
