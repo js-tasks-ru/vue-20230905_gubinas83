@@ -39,6 +39,7 @@ export default defineComponent({
   methods: {
     getMeetup: async function () {
       this.meetup = null;
+      this.error = false;
       try {
         const data = await fetchMeetupById(this.meetupId);
         this.meetup = data;
