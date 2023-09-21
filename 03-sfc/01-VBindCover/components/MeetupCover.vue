@@ -7,7 +7,6 @@
 <script>
 export default {
   name: 'MeetupCover',
-<<<<<<< HEAD
 
   props: {
     title: { type: String },
@@ -19,21 +18,6 @@ export default {
       return this.image ? `url('${this.image}')` : 'var(--default-cover)';
     },
   },
-=======
-  props: {
-    title: {
-      type: String
-    },
-    image: {
-      type: String
-    }
-  },
-  computed: {
-    bgImage() {
-      return this.image ? `url(${this.image})` : 'var(--default-cover)';
-    }
-  }
->>>>>>> bee3f6b (fix tests)
 };
 </script>
 
@@ -41,12 +25,7 @@ export default {
 .meetup-cover {
   background-size: cover;
   background-position: center;
-<<<<<<< HEAD
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), v-bind(backgroundImage);
-=======
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  v-bind(bgImage);
->>>>>>> bee3f6b (fix tests)
   display: flex;
   flex-direction: column;
   align-items: center;
