@@ -24,6 +24,7 @@ export default defineComponent({
     return {
       meetup: null,
       error: false,
+      errorMessage: '',
     };
   },
 
@@ -40,12 +41,14 @@ export default defineComponent({
     getMeetup: async function () {
       this.meetup = null;
       this.error = false;
+      this.errorMessage = '';
       try {
         const data = await fetchMeetupById(this.meetupId);
         this.meetup = data;
         this.error = false;
       } catch (err) {
         this.error = true;
+        this.errorMessage = err.message;
       }
     },
   },
@@ -59,7 +62,7 @@ export default defineComponent({
       </UiContainer>
 
       <UiContainer v-else>
-        <UiAlert>Test Error</UiAlert>
+        <UiAlert>{{ errorMessage }}</UiAlert>
       </UiContainer>
     </div>`,
 });

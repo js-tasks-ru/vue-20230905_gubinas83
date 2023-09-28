@@ -18,6 +18,19 @@ export default defineComponent({
     },
   },
 
+  computed: {
+    formattedDateTime() {
+      return new Date(this.date).toISOString().substring(0, 10);
+    },
+    formattedDate() {
+      return new Date(this.date).toLocaleDateString(navigator.language, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+    },
+  },
+
   template: `
     <ul class="meetup-info">
       <li>
@@ -30,7 +43,7 @@ export default defineComponent({
       </li>
       <li>
         <img class="icon meetup-info__icon" alt="icon" src="/assets/icons/icon-cal-lg.svg" />
-        <time :datetime="new Date(date).toISOString().substr(0, 10)">{{ new Date(date).toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}}</time>
+        <time :datetime="formattedDateTime">{{ formattedDate }}</time>
       </li>
     </ul>`,
 });

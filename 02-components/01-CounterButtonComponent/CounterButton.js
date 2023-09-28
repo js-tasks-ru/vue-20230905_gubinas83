@@ -5,18 +5,17 @@ export default defineComponent({
   props: {
     count: {
       type: [Number, null],
-      required: true,
+      default: 0,
     },
   },
   methods: {
     handleClick() {
-      let result = this.count ? this.count : 0;
-      this.$emit('update:count', ++result);
+      this.$emit('update:count', this.count + 1);
     },
   },
   emits: ['update:count'],
 
   // Компонент должен иметь входной параметр и порождать событие
 
-  template: `<button @click="handleClick" type="button">{{ count ?? 0 }}</button>`,
+  template: `<button @click="handleClick" type="button">{{ count }}</button>`,
 });
