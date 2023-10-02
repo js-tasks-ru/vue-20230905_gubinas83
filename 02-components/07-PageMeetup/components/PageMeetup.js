@@ -23,7 +23,6 @@ export default defineComponent({
   data() {
     return {
       meetup: null,
-      error: false,
       errorMessage: '',
     };
   },
@@ -40,14 +39,12 @@ export default defineComponent({
   methods: {
     getMeetup: async function () {
       this.meetup = null;
-      this.error = false;
       this.errorMessage = '';
       try {
         const data = await fetchMeetupById(this.meetupId);
         this.meetup = data;
-        this.error = false;
+        this.errorMessage = '';
       } catch (err) {
-        this.error = true;
         this.errorMessage = err.message;
       }
     },
@@ -57,7 +54,7 @@ export default defineComponent({
     <div class="page-meetup">
       <MeetupView v-if="meetup" :meetup="meetup"/>
 
-      <UiContainer v-else-if="!meetup && !error">
+      <UiContainer v-else-if="!meetup && !errorMessage">
         <UiAlert>Загрузка...</UiAlert>
       </UiContainer>
 

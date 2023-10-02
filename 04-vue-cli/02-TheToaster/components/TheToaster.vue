@@ -1,6 +1,6 @@
 <template>
   <div class="toasts">
-    <UiToast v-for="toast in toasts" :key="toast.id" :message="toast.message" :class="`toast_${toast.type}`" :toastType="toast.type" />
+    <UiToast v-for="toast in toasts" :key="toast.id" :message="toast.message" :toastType="toast.type" />
   </div>
 </template>
 
@@ -68,4 +68,5 @@ export default {
     right: 112px;
   }
 }
+
 </style>
