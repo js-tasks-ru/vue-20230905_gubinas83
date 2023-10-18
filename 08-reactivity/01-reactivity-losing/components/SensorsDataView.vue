@@ -27,7 +27,7 @@ export default {
 
     // Раз в секунду запрашиваем и выводим новые данные сенсоров
     setInterval(() => {
-      this.sensors = this.sensorsDataController.getData();
+      this.sensorsDataController.getData();
     }, 1000);
   },
 
